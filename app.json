@@ -1,0 +1,27 @@
+{
+  "name": "Watermark GIF Bot",
+  "description": "Put watermark on you GIF",
+  "keywords": [
+    "telegram",
+    "watermark",
+    "gif"
+  ],
+  "website": "https://aahnik.dev",
+  "repository": "https://github.com/aahniks/watermark-gif-bot",
+  "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png",
+  "env": {
+    "API_ID": {
+      "description": "The API ID obtained from https://my.telegram.org/auth",
+      "value":""
+    },
+    "API_HASH": {
+      "description": "The API_HASH obtained from https://my.telegram.org/auth",
+      "value": ""
+    },
+    "BOT_TOKEN":{
+        "description": "Put your BOT token obtained from BotFather",
+        "value": "",
+        "required":true
+    }
+  }
+}
