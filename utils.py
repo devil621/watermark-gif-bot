@@ -4,9 +4,11 @@ import shutil
 
 
 def download_image(url: str, filename: str) -> bool:
+    os.makedirs('files',exist_ok=True)
     try:
         response = requests.get(url, stream=True)
         if response.status_code == 200:
+            print('Got file response')
             with open(filename, 'wb') as file:
                 response.raw.decode_content = True
                 shutil.copyfileobj(response.raw, file)
@@ -14,6 +16,7 @@ def download_image(url: str, filename: str) -> bool:
         print(err)
         return False
     else:
+        print('File created image')
         return True
 
 

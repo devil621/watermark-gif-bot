@@ -4,6 +4,7 @@ cffi==1.14.5
 chardet==4.0.0
 cryptg==0.2.post2
 decorator==4.4.2
+hachoir==3.1.2
 idna==2.10
 imageio==2.9.0
 imageio-ffmpeg==0.4.3

@@ -5,9 +5,9 @@ from settings import (API_ID, API_HASH,
                       BOT_TOKEN, SESSION_STRING,
                       WATERMARK,
                       X_OFF, Y_OFF)
-from watermark import watermark_gif, mp4_to_gif
+from watermark import watermark, watermark_gif, mp4_to_gif
 from utils import download_image, files
-
+from mp4_to_gif import convertVideoToGifFile
 
 logging.basicConfig(level=logging.INFO)
 
@@ -28,8 +28,10 @@ async def echo(event):
     if event.gif:
         await event.respond('Got a gif')
         mp4_file = await event.download_media('files/')
-        gif_file = mp4_to_gif(mp4_file)
+        # gif_file = mp4_to_gif(mp4_file)
+        gif_file = convertVideoToGifFile(mp4_file)
         outf = watermark_gif(gif_file, files('image.png'), X_OFF, Y_OFF)
+        # outf = watermark(mp4_file)
         print(outf)
         await client.send_file(event.sender_id, outf)
     else:
