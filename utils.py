@@ -4,7 +4,7 @@ import shutil
 
 
 def download_image(url: str, filename: str) -> bool:
-    os.makedirs('files',exist_ok=True)
+    
     try:
         response = requests.get(url, stream=True)
         if response.status_code == 200:
@@ -20,5 +20,4 @@ def download_image(url: str, filename: str) -> bool:
         return True
 
 
-def files(path: str) -> str:
-    return os.path.join('files', os.path.basename(path))
+

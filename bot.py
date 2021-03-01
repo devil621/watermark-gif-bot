@@ -3,11 +3,10 @@ from telethon.sessions import StringSession
 import logging
 from settings import (API_ID, API_HASH,
                       BOT_TOKEN, SESSION_STRING,
-                      WATERMARK,
-                      X_OFF, Y_OFF)
-from watermark import  watermark_gif, mp4_to_gif,watermark
-from utils import download_image, files
-from mp4_to_gif import convertVideoToGifFile
+                      WATERMARK)
+from watermark import watermark
+from utils import download_image,
+
 
 logging.basicConfig(level=logging.INFO)
 
@@ -39,7 +38,8 @@ async def echo(event):
 
 
 def main():
-    download_image(url=WATERMARK, filename='image.png')
+    if WATERMARK:
+        download_image(url=WATERMARK, filename='image.png')
     client.run_until_disconnected()
 
 
