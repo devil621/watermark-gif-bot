@@ -12,16 +12,23 @@
   "env": {
     "API_ID": {
       "description": "The API ID obtained from https://my.telegram.org/auth",
-      "value":""
+      "value":"",
+      "required":true
     },
     "API_HASH": {
       "description": "The API_HASH obtained from https://my.telegram.org/auth",
-      "value": ""
+      "value": "",
+      "required":true
     },
     "BOT_TOKEN":{
         "description": "Put your BOT token obtained from BotFather",
         "value": "",
         "required":true
+    },
+    "WATERMARK":{
+    "description": "Put the URL of the image, you want to watermark",
+    "value": "",
+    "required":false
     }
   }
 }
