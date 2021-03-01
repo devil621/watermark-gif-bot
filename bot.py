@@ -5,7 +5,7 @@ from settings import (API_ID, API_HASH,
                       BOT_TOKEN, SESSION_STRING,
                       WATERMARK,
                       X_OFF, Y_OFF)
-from watermark import watermark, watermark_gif, mp4_to_gif
+from watermark import  watermark_gif, mp4_to_gif
 from utils import download_image, files
 from mp4_to_gif import convertVideoToGifFile
 
