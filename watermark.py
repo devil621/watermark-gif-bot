@@ -1,7 +1,7 @@
 from PIL import Image, ImageSequence
 from moviepy.editor import *
 
-def watermark(background: str, foreground: str, xoff: int = 0, yoff: int = 0):
+def watermark_gif(background: str, foreground: str, xoff: int = 0, yoff: int = 0):
     ''' Apply watermark on an GIF
 
     Args:
@@ -12,8 +12,8 @@ def watermark(background: str, foreground: str, xoff: int = 0, yoff: int = 0):
     '''
 
     def addOverlay(frame: Image):
-        watermark = Image.open(foreground)
-        watermark.convert('RGBA')
+        watermark = Image.open(foreground).convert('RGBA')
+        frame.convert('RGBA')
         frame.paste(watermark, (xoff, yoff), watermark)
         return frame
 
@@ -51,3 +51,9 @@ def watermark_mp4(video_file:str,watermark_text:str):
     out_file = f'OUT_{video_file}'
     final.write_videofile(out_file, fps=24, codec='libx264')
     return out_file
+
+def mp4_to_gif(mp4_file):
+    clip = VideoFileClip(mp4_file)
+    output=f'{mp4_file}.gif'
+    clip.write_gif(output)
+    return output
