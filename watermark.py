@@ -48,7 +48,10 @@ def watermark_gif(bg: str, fg: str, xoff: int = 0, yoff: int = 0) -> str:
 
     return outfile
 
-# def watermark(video_file:str):
-#     os.system(
-#         f'ffmpeg –i {video_file} -i files/image.png -filter_complex "overlay=10:10" watered_{video_file}')
-#     return f'watered_{video_file}'
+
+def watermark(video_file: str):
+    outf = f'watered_{video_file}'
+    command = f'ffmpeg -i {video_file} -i image.png -filter_complex "overlay=10:10" {outf}'
+    print(command)
+    os.system(command)
+    return outf
