@@ -6,9 +6,20 @@
     "watermark",
     "gif"
   ],
+
   "website": "https://aahnik.dev",
   "repository": "https://github.com/aahniks/watermark-gif-bot",
   "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png",
+
+   "buildpacks": [
+    {
+      "url":"https://github.com/GeneralProducts/heroku-buildpack-imagemagick.git"
+    },
+    {
+      "url":"https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+
   "env": {
     "API_ID": {
       "description": "The API ID obtained from https://my.telegram.org/auth",
