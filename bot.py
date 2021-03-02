@@ -1,11 +1,11 @@
-from telethon import TelegramClient, events
+from telethon import TelegramClient, events,utils
 from telethon.sessions import StringSession
 import logging
 from settings import (API_ID, API_HASH,
                       BOT_TOKEN, SESSION_STRING,
                       WATERMARK)
 from watermark import watermark
-# from fast_telethon import download_file, upload_file
+from fast_telethon import download_file, upload_file
 from utils import download_image
 import os
 
@@ -26,19 +26,15 @@ async def start(event):
 @client.on(events.NewMessage())
 async def echo(event):
     if event.gif or event.video:
+
         mp4_file = await event.download_media('')
         outf = watermark(mp4_file)
         print(outf)
         await client.send_file(event.sender_id, outf)
-        # file = open('sm.mp4','wb')
-        # await download_file(client, event.document, file,)
-        # file.close()
-        # file = open('sm.mp4','rb')
-        # r = await upload_file(client, file)
-        # file.close()
 
-        # os.remove(mp4_file)
-        # os.remove(outf)
+
+        os.remove(mp4_file)
+        os.remove(outf)
     else:
         await event.respond('Not a valid file')
 
