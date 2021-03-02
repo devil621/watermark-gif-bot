@@ -6,7 +6,7 @@ from settings import (API_ID, API_HASH,
                       WATERMARK)
 from watermark import watermark
 from utils import download_image
-
+import os
 
 logging.basicConfig(level=logging.INFO)
 
@@ -29,6 +29,8 @@ async def echo(event):
         outf = watermark(mp4_file)
         print(outf)
         await client.send_file(event.sender_id, outf)
+        os.remove(mp4_file)
+        os.remove(outf)
     else:
         await event.respond('Not a valid file')
 
