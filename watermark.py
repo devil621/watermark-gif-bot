@@ -5,7 +5,7 @@ import os
 
 def watermark(video_file: str):
     outf = f'watered_{video_file}'
-    command = f'ffmpeg -i {video_file} -i image.png -an -r 15 -preset ultrafast -tune zerolatency  -filter_complex "overlay={X_OFF}:{Y_OFF}" {outf}'
+    command = f'ffmpeg -i {video_file} -i image.png -an -r 15 -preset ultrafast  -tune zerolatency  -tune fastdecode -filter_complex "overlay={X_OFF}:{Y_OFF}" {outf}'
     print(command)
     os.system(command)
     return outf
