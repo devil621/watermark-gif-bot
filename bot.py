@@ -5,6 +5,7 @@ from settings import (API_ID, API_HASH,
                       BOT_TOKEN, SESSION_STRING,
                       WATERMARK)
 from watermark import watermark
+# from fast_telethon import download_file, upload_file
 from utils import download_image
 import os
 
@@ -29,8 +30,15 @@ async def echo(event):
         outf = watermark(mp4_file)
         print(outf)
         await client.send_file(event.sender_id, outf)
-        os.remove(mp4_file)
-        os.remove(outf)
+        # file = open('sm.mp4','wb')
+        # await download_file(client, event.document, file,)
+        # file.close()
+        # file = open('sm.mp4','rb')
+        # r = await upload_file(client, file)
+        # file.close()
+
+        # os.remove(mp4_file)
+        # os.remove(outf)
     else:
         await event.respond('Not a valid file')
 

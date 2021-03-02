@@ -20,6 +20,7 @@ python-dotenv==0.15.0
 requests==2.25.1
 rsa==4.7.2
 Telethon==1.20
+TgCrypto==1.2.2
 toml==0.10.2
 typing-extensions==3.7.4.3
 urllib3==1.26.3
