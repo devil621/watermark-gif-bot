@@ -1,6 +1,5 @@
 from settings import X_OFF, Y_OFF
 import os
-# import ffmpeg
 
 
 def watermark(video_file: str):
@@ -10,6 +9,3 @@ def watermark(video_file: str):
     os.system(command)
     return outf
 
-# def watermark(video_file:str):
-#     stream = ffmpeg.input(video_file)
-#     ffmpeg.overlay()

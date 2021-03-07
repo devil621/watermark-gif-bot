@@ -1,11 +1,10 @@
-from telethon import TelegramClient, events,utils
+from telethon import TelegramClient, events, utils
 from telethon.sessions import StringSession
 import logging
 from settings import (API_ID, API_HASH,
                       BOT_TOKEN, SESSION_STRING,
                       WATERMARK)
 from watermark import watermark
-from fast_telethon import download_file, upload_file
 from utils import download_image
 import os
 
@@ -23,6 +22,18 @@ async def start(event):
     raise events.StopPropagation
 
 
+@client.on(events.NewMessage(pattern='/setimage'))
+async def set_image(event):
+    await event.respond('Hi! I am alive.')
+    raise events.StopPropagation
+
+
+@client.on(events.NewMessage(pattern='/setpos'))
+async def set_pos(event):
+    await event.respond('Hi! I am alive.')
+    raise events.StopPropagation
+
+
 @client.on(events.NewMessage())
 async def echo(event):
     if event.gif or event.video:
@@ -31,8 +42,6 @@ async def echo(event):
         outf = watermark(mp4_file)
         print(outf)
         await client.send_file(event.sender_id, outf)
-
-
         os.remove(mp4_file)
         os.remove(outf)
     else:
